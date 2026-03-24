@@ -47,11 +47,11 @@ def list_admissions(request):
             "email": a.email,
             "phone": a.phone,
             "address": a.address,
-            "created_at": a.created_at
+            "created_at": a.created_at,
+            "status": a.status  
         })
 
     return Response(data)
-
 
 
  
