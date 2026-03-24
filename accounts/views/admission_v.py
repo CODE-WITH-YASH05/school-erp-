@@ -3,9 +3,9 @@ from rest_framework.response import Response
 from accounts.models import AdmissionApplication
 
 
-# =========================
+ 
 # CREATE ADMISSION
-# =========================
+ 
 
 @api_view(['POST'])
 def add_admission(request):
@@ -26,9 +26,9 @@ def add_admission(request):
     })
 
 
-# =========================
+ 
 # GET ALL ADMISSIONS
-# =========================
+ 
 
 @api_view(['GET'])
 def list_admissions(request):
@@ -54,9 +54,9 @@ def list_admissions(request):
 
 
 
-# =========================
+ 
 # DELETE ADMISSION
-# =========================
+ 
 
 @api_view(['DELETE'])
 def delete_admission(request, id):
@@ -70,4 +70,27 @@ def delete_admission(request, id):
 
     return Response({
         "message": "Admission deleted successfully"
+    })
+    
+# admission_status
+
+@api_view(['PUT'])
+def update_admission_status(request, id):
+
+    try:
+        admission = AdmissionApplication.objects.get(id=id)
+    except AdmissionApplication.DoesNotExist:
+        return Response({"error": "Admission not found"})
+
+    status = request.data.get("status")
+
+    if status not in ["accepted", "rejected"]:
+        return Response({"error": "Invalid status"})
+
+    admission.status = status
+    admission.save()
+
+    return Response({
+        "message": f"Admission {status} successfully",
+        "status": admission.status
     })

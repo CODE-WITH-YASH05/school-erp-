@@ -14,5 +14,18 @@ class AdmissionApplication(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
+ 
+    status = models.CharField(
+        max_length=20,
+        choices=[
+            ('pending', 'Pending'),
+            ('accepted', 'Accepted'),
+            ('rejected', 'Rejected')
+        ],
+        default='pending'
+    )
+
     def __str__(self):
         return self.student_name
+    
+    

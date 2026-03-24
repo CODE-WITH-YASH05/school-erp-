@@ -94,12 +94,13 @@ urlpatterns = [
     path('api/admin/sliders/add/', slider_views.add_slider),
     path('api/sliders/', slider_views.list_sliders),
     path('api/admin/sliders/update/<int:id>/', slider_views.update_slider),
-    path('api/admin/sliders/delete/<int:id>/', slider_views.delete_slider),
+    path('api/admin/sliders/delete/<int:id>/', slider_views.update_slider),
 
     #admission
-    path('api/admission/add/', admission_v.add_admission),
+    path('api/admin/admission/add/', admission_v.add_admission),
     path('api/admin/admissions/', admission_v.list_admissions),
     path('api/admin/admission/delete/<int:id>/', admission_v.delete_admission),
+    path('api/admin/admission/update/<int:id>/', admission_v.update_admission_status),
     
     # ROLE
     path('api/staff/roles/add/', staff_views.add_role),
