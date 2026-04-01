@@ -8,4 +8,3 @@ from .slider_views import *
 from .school_setting import *
 from .license_views import *
 from .admission_v import *
-from .staff_views import *

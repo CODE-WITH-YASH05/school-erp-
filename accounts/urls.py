@@ -6,7 +6,7 @@ from accounts.views import contact_views , facility_views
 from accounts.views import slider_views
 from accounts.views import admission_v
 from accounts.views import license_views
-from accounts.views import staff_views
+
 
 
 urlpatterns = [
@@ -102,29 +102,7 @@ urlpatterns = [
     path('api/admin/admission/delete/<int:id>/', admission_v.delete_admission),
     path('api/admin/admission/update/<int:id>/', admission_v.update_admission_status),
     
-    # ROLE
-    path('api/staff/roles/add/', staff_views.add_role),
-    path('api/staff/roles/', staff_views.list_roles),
-    path('api/staff/roles/update/<int:id>/', staff_views.update_role),
-    path('api/staff/roles/delete/<int:id>/', staff_views.delete_role),
-
-    # STAFF
-    path('api/staff/add/', staff_views.add_staff),
-    path('api/staff/', staff_views.list_staff),
-    path('api/staff/<int:id>/', staff_views.get_staff),
-    path('api/staff/update/<int:id>/', staff_views.update_staff),
-    path('api/staff/delete/<int:id>/', staff_views.delete_staff),
-    path('api/staff/status/<int:id>/', staff_views.toggle_staff_status),
-
-    # ATTENDANCE
-    path('api/staff/attendance/mark/', staff_views.mark_attendance),
-    path('api/staff/attendance/', staff_views.list_attendance),
-    path('api/staff/attendance/<int:staff_id>/', staff_views.staff_attendance),
-
-    # LEAVE
-    path('api/staff/leave/apply/', staff_views.apply_leave),
-    path('api/staff/leave/', staff_views.list_leaves),
-    path('api/staff/leave/update/<int:id>/', staff_views.update_leave_status),
+    
 ]
     
 
